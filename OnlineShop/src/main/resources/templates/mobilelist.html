@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xlmns="www.thymeleaf.org">
+
+<head>
+
+	<th:block th:include="layout::mainhead">
+	</th:block>
+</head>
+
+<body>
+	<header th:insert="layout::nav">
+	</header>
+
+	<div class="container" align="center">
+		<div class="card" style="width: 18rem;" th:each="mobile:${mobiles}">
+			<img src="..." class="card-img-top" alt="...">
+			<div class="card-body">
+				<p th:text="${mobile.name}"></p>
+				<p th:text="${mobile.price}"></p>
+				<p class="card-text" th:text="${mobile.description}"></p>
+			</div>
+		</div>
+	</div>
+
+
+
+	<footer th:replace="layout::footer">
+	</footer>
+
+</body>
+
+</html>

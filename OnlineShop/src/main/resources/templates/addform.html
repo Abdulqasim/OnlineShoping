@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+	<th:block th:include="layout::mainhead">
+	</th:block>
+</head>
+
+<body>
+	<header th:insert="layout::nav">
+	</header>
+
+	<div class="container">
+		<form method="post" th:action="@{/mobile/add}" th:object="${mobile}">
+			<div class="mb-3">
+				<label for="Name" class="form-label">Name</label>
+				<input type="text" class="form-control" id="Name" aria-describedby="Enter your email"
+					th:field="*{name}">
+			</div>
+			<div class="mb-3">
+				<label for="price" class="form-label">Price</label>
+				<input type="text" class="form-control" id="price" th:field="*{price}">
+			</div>
+			<div class="mb-3">
+				<label for="description" class="form-label">Description</label>
+				<input type="text" class="form-control" id="description" aria-describedby="Enter mobile description"
+					th:field="*{description}">
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+
+	<footer th:replace="layout::footer">
+	</footer>
+
+</body>
+
+</html>

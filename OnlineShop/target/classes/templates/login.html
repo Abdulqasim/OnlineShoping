@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" xlmns="www.thymeleaf.org">
+
+<head>
+	<th:block th:include="layout::mainhead">
+	</th:block>
+</head>
+
+<body>
+	<header th:insert="layout::nav">
+	</header>
+	<div class="container">
+		<div th:if="${param.error}">
+			<p>[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+		</div>
+		<form method="post" th:object="${user}" th:action="@{/login}">
+			<div class="border border-secondary p-3 rounded">
+			<p>Email
+			<input type="email" name="email" class="form-control" placeholder="Email"/>
+			</p>
+			<p>Password
+			<input type="password" name="password" class="form-control" />
+			</p>
+			</div>
+			<button type="submit" value="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+
+
+	<footer th:replace="layout::footer">
+	</footer>
+</body>
+
+</html>
